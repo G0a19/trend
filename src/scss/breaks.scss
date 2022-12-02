@@ -1,0 +1,11 @@
+@mixin breakMin() {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin breakSmallM() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}

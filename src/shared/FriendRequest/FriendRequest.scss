@@ -1,0 +1,62 @@
+@import "./../../scss/mixin.scss";
+@import "./../../scss/breaks.scss";
+
+.friendReq {
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: -2px 4px 8px -2px #000000;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+
+  &_wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &_image {
+    width: 40px;
+    margin-right: 8px;
+  }
+
+  &_title {
+    @include font-size;
+  }
+
+  &_btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include breakMin() {
+      flex-direction: row;
+      align-items: center;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 4px;
+      height: fit-content;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+
+  &_add {
+    margin-bottom: 6px;
+    background-color: #23e723;
+    border: 1px solid #23e723;
+    color: #fff;
+    border: none;
+    @include breakMin() {
+      margin: 0;
+      margin-right: 6px;
+    }
+  }
+
+  &_reject {
+    color: #000;
+    background-color: unset;
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,108 @@
+@import "./../../../../scss/breaks.scss";
+@import "./../../../../scss/helper.scss";
+@import "./../../../../scss/mixin.scss";
+
+.add {
+  &_title {
+    @include title;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    @include breakMin() {
+      text-align: left;
+    }
+  }
+
+  &_error {
+    @include font-size;
+    color: red;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  &_form {
+    &-wrapper {
+      margin-bottom: 20px;
+    }
+    &-oneside {
+      margin-bottom: 30px;
+      @include breakSmallM() {
+        @include row(2, 15px, flex-start);
+      }
+      .input {
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
+        @include breakMin() {
+          max-width: unset;
+        }
+        &:not(:last-child) {
+          margin-bottom: 25px;
+          @include breakSmallM() {
+            margin-bottom: 0;
+          }
+        }
+      }
+      input {
+        width: 100%;
+      }
+    }
+    &-anotherside {
+      width: 100%;
+      @include row(2, 15px, center);
+      @include breakSmallM() {
+        @include row(3, 15px, flex-start);
+      }
+      @include breakMin() {
+        @include row(3, 25px, flex-start);
+      }
+    }
+  }
+
+  &_check {
+    position: relative;
+    &-input {
+      @include center;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    &-img {
+      width: 100%;
+    }
+    .add_check-input:checked + .add_check-img {
+      border: 1px solid blue;
+    }
+  }
+
+  &_submit {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #3a7fc3;
+    border-radius: 0.6em;
+    color: #3a7fc3;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    @include font-size;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0 auto;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+    &:hover {
+      color: #fff;
+      outline: 0;
+      box-shadow: 0 0 40px 40px #3a7fc3 inset;
+    }
+  }
+}

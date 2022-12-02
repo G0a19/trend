@@ -1,0 +1,52 @@
+@import "./../../scss/breaks.scss";
+@import "./../../scss/mixin.scss";
+
+.notificationsPage {
+  &_btns {
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 20px;
+    display: flex;
+    border: 1px solid #121212;
+    border-radius: 4px;
+    position: relative;
+
+    &-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      @include font-size;
+      color: #121212;
+      background-color: unset;
+      border: none;
+      z-index: 1;
+      transition: 0.3s;
+      cursor: pointer;
+      @include breakMin() {
+        min-width: 300px;
+      }
+    }
+
+    &-active {
+      font-weight: bold;
+    }
+
+    &-toggle {
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      top: 0;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #edf1f5 0%, rgb(189, 253, 255) 100%);
+      left: 50%;
+      transition: 0.3s;
+    }
+
+    .active {
+      left: 0;
+    }
+  }
+}

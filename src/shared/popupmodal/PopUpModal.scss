@@ -1,0 +1,58 @@
+@import "./../../scss/mixin.scss";
+@import "./../../scss/keyframes.scss";
+@import "./../../scss/breaks.scss";
+
+.popup {
+  width: 230px;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 1;
+  position: relative;
+  animation: popup 0.4s forwards;
+  @include breakMin {
+    width: 250px;
+    height: 400px;
+  }
+  &_content {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    @include center;
+    width: 80%;
+    text-align: center;
+    @include breakMin {
+      font-size: 24px;
+    }
+  }
+  &_tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+
+    &-circle {
+      padding: 0 4px;
+      border: none;
+      background-color: inherit;
+      cursor: pointer;
+    }
+    &-box {
+      display: inline-block;
+      align-items: center;
+      width: 15px;
+      height: 15px;
+      padding: 1px;
+      border-radius: 50%;
+    }
+    &-red {
+      background-color: #ff605c;
+    }
+    &-yellow {
+      background-color: #ffbd44;
+    }
+    &-green {
+      background-color: #00ca4e;
+    }
+  }
+}

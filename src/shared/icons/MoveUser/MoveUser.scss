@@ -1,0 +1,818 @@
+/* Ignore This */
+@import url("https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i&display=swap");
+
+:root {
+  --primary-color: #121f4e;
+
+  --state-inactive: #ddd;
+
+  --primary-background: #e5e5e5;
+  --secondary-background: #fff;
+
+  --time-cubit: 0.6s;
+  --time-quarter: calc(var(--time-cubit) / 4);
+  --time-half: calc(var(--time-cubit) / 2);
+  --time-threequater: calc(var(--time-cubit) / 0.75);
+  --time-single: var(--time-cubit);
+  --time-double: calc(var(--time-cubit) * 2);
+  --time-triple: calc(var(--time-cubit) * 3);
+}
+
+.moveUser {
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+svg {
+  cursor: pointer;
+}
+/* Ignore This */
+
+/* Custom Code Here */
+svg.error circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.error circle.animation {
+  transition: stroke-dashoffset 200ms linear 260ms, stroke-dasharray 200ms linear 260ms;
+  stroke: var(--state-error);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.error.toggle circle.animation {
+  transition: stroke-dashoffset 200ms linear 0ms, stroke-dasharray 200ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.error line {
+  stroke: var(--state-error);
+}
+svg.error line {
+  stroke-dashoffset: -50px;
+  stroke-dasharray: 50px;
+}
+svg.error line.left {
+  transition: stroke-dashoffset 120ms linear 0ms;
+}
+svg.error line.right {
+  transition: stroke-dashoffset 120ms linear 160ms;
+}
+svg.error.toggle line.left {
+  transition: stroke-dashoffset 120ms linear 260ms;
+  stroke-dashoffset: 0;
+}
+svg.error.toggle line.right {
+  transition: stroke-dashoffset 120ms linear 440ms;
+  stroke-dashoffset: 0;
+}
+
+svg.success circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.success circle.animation {
+  transition: stroke-dashoffset 200ms linear 260ms, stroke-dasharray 200ms linear 260ms;
+  stroke: var(--state-success);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.success.toggle circle.animation {
+  transition: stroke-dashoffset 200ms linear 0ms, stroke-dasharray 200ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.success path {
+  stroke: var(--state-success);
+  transition: stroke-dashoffset 160ms linear 0ms;
+  stroke-dashoffset: -50px;
+  stroke-dasharray: 50px;
+}
+svg.success.toggle path {
+  transition: stroke-dashoffset 200ms linear 260ms;
+  stroke-dashoffset: 0;
+}
+
+svg.warning circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.warning circle.animation {
+  transition: stroke-dashoffset 200ms linear 260ms, stroke-dasharray 200ms linear 260ms;
+  stroke: var(--state-warning);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.warning.toggle circle.animation {
+  transition: stroke-dashoffset 200ms linear 0ms, stroke-dasharray 200ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.warning path,
+svg.warning line {
+  stroke: var(--state-warning);
+}
+svg.warning path {
+  transition: stroke-dashoffset 180ms linear 0ms;
+  stroke-dashoffset: -50px;
+  stroke-dasharray: 50px;
+}
+svg.warning line {
+  transition: stroke-width 30ms linear 200ms;
+  stroke-width: 0;
+}
+svg.warning.toggle path {
+  transition: stroke-dashoffset 180ms linear 280ms;
+  stroke-dashoffset: 0;
+}
+svg.warning.toggle line {
+  transition: stroke-width 30ms linear 260ms;
+  stroke-width: 8;
+}
+
+svg.checkbox circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.checkbox circle.animation {
+  transition: stroke-dashoffset 460ms linear 260ms, stroke-dasharray 460ms linear 260ms, 160ms linear 200ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+  fill: transparent;
+}
+svg.toggle.checkbox circle.animation {
+  transition: stroke-dashoffset 200ms linear 0ms, stroke-dasharray 200ms linear 0ms, fill 200ms linear 260ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+  fill: var(--primary-color);
+}
+svg.checkbox path {
+  stroke: #fff;
+  transition: stroke-dashoffset 160ms linear 0ms;
+  stroke-dashoffset: -50px;
+  stroke-dasharray: 50px;
+}
+svg.toggle.checkbox path {
+  transition: stroke-dashoffset 200ms linear 460ms;
+  stroke-dashoffset: 0;
+}
+
+svg.exit path.solid {
+  stroke: var(--state-inactive);
+}
+svg.exit path.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.exit line {
+  stroke: var(--state-inactive);
+  transition: stroke 200ms linear 0ms;
+}
+svg.exit g.exit-icon {
+  transition: transform 200ms linear 0ms;
+  transform-origin: center center;
+}
+svg.exit .exit-arrow {
+  transform: translateY(2px);
+}
+svg.exit.toggle path.animation,
+svg.exit:hover path.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.exit.toggle line,
+svg.exit:hover line {
+  stroke: var(--primary-color);
+}
+svg.exit.toggle g.exit-icon,
+svg.exit:hover g.exit-icon {
+  transform: rotate(-90deg);
+}
+svg.exit.toggle .exit-arrow,
+svg.exit:hover .exit-arrow {
+  animation: arrow 2s ease-in-out infinite;
+  transform: translateY(2px);
+}
+@keyframes arrow {
+  0% {
+    transform: translateY(2px);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(2px);
+  }
+}
+svg.exit .exit-right,
+svg.exit .exit-left {
+  display: none;
+}
+svg.exit.toggle .exit-right,
+svg.exit.toggle .exit-left,
+svg.exit:hover .exit-right,
+svg.exit:hover .exit-left {
+  display: block;
+}
+svg.exit .exit-arrow line {
+  transition: stroke-width 200ms linear 0s;
+}
+svg.exit.toggle .exit-arrow line,
+svg.exit:hover .exit-arrow line {
+  stroke-width: 6px;
+}
+
+svg.menu circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.menu circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.menu circle.animation {
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.menu line {
+  stroke: var(--state-inactive);
+  transform-origin: 50% 50%;
+}
+svg.menu line.top,
+svg.menu line.mid,
+svg.menu line.bot {
+  stroke-width: 4px;
+  opacity: 1;
+  transition: opacity 0ms linear 200ms, transform 200ms linear 200ms, stroke 200ms linear 0ms, stroke-width 200ms linear 200ms;
+}
+svg.menu line.top {
+  transform: translateY(10px);
+}
+svg.menu line.bot {
+  transform: translateY(-10px);
+}
+svg.menu:hover line.top {
+  transform: translateY(12px);
+}
+svg.menu:hover line.bot {
+  transform: translateY(-12px);
+}
+
+svg.toggle.menu line {
+  stroke: var(--primary-color);
+}
+svg.toggle.menu line.top,
+svg.toggle.menu line.mid,
+svg.toggle.menu line.bot {
+  transform: translateY(0);
+  opacity: 0;
+  stroke-width: 6px;
+  transition: opacity 0s linear 200ms, transform 200ms linear 0s, stroke 200ms linear 0ms, stroke-width 200ms linear 0ms;
+}
+svg.menu line.left,
+svg.menu line.right {
+  opacity: 0;
+  transition: opacity 0ms linear 200ms, transform 200ms linear 0s, stroke 200ms linear 0ms;
+}
+svg.toggle.menu line.left,
+svg.toggle.menu line.right {
+  opacity: 1;
+  transition: opacity 0ms linear 200ms, transform 200ms linear 200ms, stroke 200ms linear 0ms;
+}
+svg.toggle.menu line.left {
+  transform: rotateZ(45deg);
+}
+svg.toggle.menu line.right {
+  transform: rotateZ(-45deg);
+}
+
+svg.user circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.user circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.user circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.user rect,
+svg.user path {
+  transition: fill 400ms linear 0ms;
+  fill: var(--state-inactive);
+}
+svg.user:hover rect {
+  opacity: 0;
+}
+svg.toggle.user rect,
+svg.toggle.user path {
+  transition: fill 400ms linear 0ms;
+  fill: var(--primary-color);
+}
+svg.toggle.user rect {
+  animation: blink 6s ease-in-out infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  31% {
+    opacity: 1;
+  }
+  32% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  71% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0;
+  }
+  73% {
+    opacity: 1;
+  }
+  74% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+svg.view circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.view circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.view:hover circle.animation {
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.view line {
+  stroke: var(--state-inactive);
+}
+svg.view:hover line {
+  stroke: var(--primary-color);
+}
+svg.view g.lines-draw {
+  transition: stroke-width 200ms linear 0ms;
+  stroke-width: 0;
+}
+svg.view g.dots {
+  transition: stroke-width 100ms linear 250ms;
+  stroke-width: 8px;
+}
+svg.view.toggle g.lines-draw {
+  transition: stroke-width 100ms linear 250ms;
+  stroke-width: 6px;
+}
+svg.view.toggle g.dots {
+  transition: stroke-width 200ms linear 0ms;
+  stroke-width: 0;
+}
+
+svg.settings circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.settings circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.settings circle.animation {
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.settings path {
+  transition: fill 400ms linear 0ms;
+  fill: var(--state-inactive);
+}
+svg.toggle.settings path {
+  animation: cognate 6s ease-in-out infinite;
+  transform-origin: center center;
+  transition: fill 400ms linear 0ms;
+  fill: var(--primary-color);
+}
+@keyframes cognate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  10% {
+    transform: rotateZ(-45deg);
+  }
+  20% {
+    transform: rotateZ(45deg);
+  }
+  30% {
+    transform: rotateZ(90deg);
+  }
+  40% {
+    transform: rotateZ(45deg);
+  }
+  50% {
+    transform: rotateZ(-45deg);
+  }
+  60% {
+    transform: rotateZ(45deg);
+  }
+  70% {
+    transform: rotateZ(-45deg);
+  }
+  80% {
+    transform: rotateZ(45deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+svg.edit circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.edit line,
+svg.edit circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.edit circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.toggle.edit line {
+  transition: stroke-dashoffset 2s linear 0ms, stroke-dasharray 2s linear 0ms;
+  stroke-dasharray: 32, 0;
+  stroke-dashoffset: 0;
+}
+svg.edit path {
+  transition: fill 400ms linear 0ms, transform 400ms linear 0ms;
+  transform-origin: center center;
+  transform: rotate(360deg);
+  fill: var(--state-inactive);
+}
+svg.toggle.edit path {
+  transition: fill 400ms linear 0ms;
+  fill: var(--primary-color);
+  animation: scribble 1s ease-in-out 2;
+  transform-origin: 16px 50px;
+}
+@keyframes scribble {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  10% {
+    transform: rotateZ(-1deg);
+  }
+  20% {
+    transform: rotateZ(1deg);
+  }
+  30% {
+    transform: rotateZ(0.5deg);
+  }
+  40% {
+    transform: rotateZ(-1deg);
+  }
+  50% {
+    transform: rotateZ(-3deg);
+  }
+  60% {
+    transform: rotateZ(1deg);
+  }
+  70% {
+    transform: rotateZ(2deg);
+  }
+  80% {
+    transform: rotateZ(-3deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+svg.download circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.download circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.download circle.animation {
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.download path {
+  stroke: var(--state-inactive);
+}
+svg.toggle.download path {
+  stroke: var(--primary-color);
+}
+svg.toggle.download path.arrow {
+  animation: download 1s linear infinite;
+}
+svg.toggle.download path.disk {
+  animation: download-disk 1s linear infinite;
+}
+@keyframes download-disk {
+  0%,
+  24%,
+  40%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(1px);
+  }
+}
+@keyframes download {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(2px);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+}
+
+svg.upload circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.upload circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.upload circle.animation {
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.upload path {
+  stroke: var(--state-inactive);
+}
+svg.toggle.upload path {
+  stroke: var(--primary-color);
+}
+
+svg.toggle.upload path.arrow {
+  animation: upload 1s linear infinite;
+}
+svg.toggle.upload path.disk {
+  animation: upload-disk 1s linear infinite;
+}
+@keyframes upload-disk {
+  0%,
+  74%,
+  90%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(1px);
+  }
+}
+@keyframes upload {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  75% {
+    transform: translateY(2px);
+  }
+}
+
+svg.search circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.search circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.search circle.animation {
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.search g * {
+  stroke: var(--state-inactive);
+}
+svg.toggle.search g * {
+  stroke: var(--primary-color);
+}
+
+svg.toggle.search g.find {
+  animation: find 4s linear infinite;
+  transform-origin: center;
+}
+@keyframes find {
+  0% {
+    transform: rotateZ(0deg) translate(0, 0);
+  }
+  10% {
+    transform: rotateZ(-1deg) translate(1px, 1px);
+  }
+  20% {
+    transform: rotateZ(1deg);
+  }
+  30% {
+    transform: rotateZ(0.5deg) translate(-1px, -1px);
+  }
+  40% {
+    transform: rotateZ(-1deg);
+  }
+  50% {
+    transform: rotateZ(-3deg);
+  }
+  60% {
+    transform: rotateZ(1deg) translate(-2px, 1px);
+  }
+  70% {
+    transform: rotateZ(2deg);
+  }
+  80% {
+    transform: rotateZ(-3deg) translate(-1px, -1px);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+svg.archive circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.archive circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.archive circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.archive path {
+  transition: fill 400ms linear 0ms;
+  fill: var(--state-inactive);
+}
+svg.toggle.archive path {
+  transition: fill 400ms linear 0ms;
+  fill: var(--primary-color);
+}
+svg.toggle.archive path.lid {
+  animation: lid 400ms linear 1;
+  transform-origin: center;
+}
+@keyframes lid {
+  0% {
+    transform: rotateZ(0deg) translate(0, 0);
+  }
+  25% {
+    transform: rotateZ(6deg) translate(0, -1px);
+  }
+  50% {
+    transform: rotateZ(-6deg) translate(0, -1px);
+  }
+  75% {
+    transform: rotateZ(6deg) translate(0, -1px);
+  }
+  100% {
+    transform: rotateZ(0deg) translate(0, 0);
+  }
+}
+
+svg.activate circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.activate circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.activate circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.activate path {
+  transition: fill 400ms linear 0ms;
+  fill: var(--state-inactive);
+}
+svg.toggle.activate path {
+  transition: fill 400ms linear 0ms;
+  fill: var(--primary-color);
+  animation: activate 400ms linear 1;
+  transform-origin: center;
+}
+@keyframes activate {
+  0% {
+    transform: rotateZ(0deg) scale(1);
+  }
+  25% {
+    transform: rotateZ(6deg) scale(0.95);
+  }
+  50% {
+    transform: rotateZ(-6deg) scale(0.95);
+  }
+  75% {
+    transform: rotateZ(6deg) scale(0.95);
+  }
+  100% {
+    transform: rotateZ(0deg) scale(1);
+  }
+}
+
+svg.star circle.solid {
+  stroke: var(--state-inactive);
+}
+svg.star circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke: var(--primary-color);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 2;
+}
+svg.toggle.star circle.animation {
+  transition: stroke-dashoffset 400ms linear 0ms, stroke-dasharray 400ms linear 0ms;
+  stroke-dasharray: 200, 0;
+  stroke-dashoffset: 0;
+}
+svg.star polygon {
+  transition: fill 400ms linear 0ms;
+  fill: var(--state-inactive);
+}
+svg.toggle.star polygon {
+  transition: fill 400ms linear 0ms;
+  fill: var(--primary-color);
+  animation: star 400ms linear 1;
+  transform-origin: center;
+}
+@keyframes star {
+  0% {
+    transform: rotateZ(0deg) scale(1);
+  }
+  25% {
+    transform: rotateZ(6deg) scale(0.95);
+  }
+  50% {
+    transform: rotateZ(-6deg) scale(0.95);
+  }
+  75% {
+    transform: rotateZ(6deg) scale(0.95);
+  }
+  100% {
+    transform: rotateZ(0deg) scale(1);
+  }
+}
+
+svg.spinner {
+  animation: rotater 4s linear infinite;
+}
+svg.spinner circle {
+  animation: spinner 3s ease-in-out infinite;
+  stroke-linecap: round;
+  transform-origin: center center;
+  stroke: var(--state-inactive);
+
+  transition: stroke 200ms linear 0ms;
+}
+svg.spinner:hover circle,
+svg.spinner.toggle circle {
+  stroke: var(--primary-color);
+}

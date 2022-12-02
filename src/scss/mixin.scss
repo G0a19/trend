@@ -1,0 +1,38 @@
+@import "./breaks.scss";
+
+@mixin center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin font-size {
+  font-size: 14px;
+  @include breakMin {
+    font-size: 18px;
+  }
+}
+
+@mixin title {
+  font-size: 28px;
+  @include breakMin {
+    font-size: 32px;
+  }
+}
+
+@mixin row($num: 2, $gap: 0px, $justify: center) {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: $justify;
+  margin-right: -$gap * 0.5;
+  margin-left: -$gap * 0.5;
+
+  & > * {
+    margin-bottom: $gap;
+    flex-basis: calc((100% / #{$num}) - #{$gap});
+    margin: $gap * 0.5;
+    flex-grow: 0;
+  }
+}

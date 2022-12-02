@@ -1,0 +1,35 @@
+@import "./../../scss/breaks.scss";
+@import "./../../scss/mixin.scss";
+
+.userCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: -3px 2px 4px -1px #121212;
+  @include breakMin {
+    padding: 16px;
+  }
+  img,
+  svg {
+    width: 50px;
+    margin-bottom: 9px;
+    @include breakMin {
+      width: 70px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &_name {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 9px;
+    @include breakMin {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+  }
+}

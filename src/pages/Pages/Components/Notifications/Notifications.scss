@@ -1,0 +1,18 @@
+@import "./../../../../scss/mixin.scss";
+@import "./../../../../scss/breaks.scss";
+
+.notificationsPage {
+  &_wrapper {
+    @include row(1, 20px, flex-start);
+    @include breakMin() {
+      @include row(2, 20px, flex-start);
+    }
+  }
+
+  &_title {
+    text-align: center;
+    text-transform: uppercase;
+    @include title;
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,100 @@
+@import "./../../../../scss/breaks.scss";
+@import "./../../../../scss/mixin.scss";
+
+.Friends {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+
+  &_input {
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &-btn {
+      background-color: inherit;
+      transform: translateX(-10px);
+      border: none;
+      right: 0;
+      position: absolute;
+      @include breakMin {
+        transition: 0.3s;
+        display: inline-block;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #3a7fc3;
+        cursor: pointer;
+        transform: translateX(0);
+      }
+    }
+
+    &-svg {
+      width: 20px;
+      fill: #000;
+      @include breakMin {
+        fill: #fff;
+        width: 25px;
+      }
+    }
+  }
+
+  &_search {
+    padding: 10px 5px;
+    border-radius: 3px;
+    border: 1px solid black;
+    width: 240px;
+    @include font-size;
+    transition: 0.3s;
+    @include breakMin {
+      width: 0;
+      opacity: 0;
+    }
+  }
+
+  .open_input {
+    @include breakMin {
+      width: 450px;
+      opacity: 1;
+    }
+  }
+
+  .open_btn {
+    @include breakMin {
+      width: 40px;
+      height: 40px;
+      transform: translateX(-5px);
+      background-color: inherit;
+    }
+
+    svg {
+      @include breakMin {
+        width: 20px;
+        fill: #000;
+      }
+    }
+  }
+
+  &_users {
+    margin-top: 30px;
+    @include row(2, 15px, flex-start);
+
+    @media (min-width: 500px) {
+      @include row(3, 15px, flex-start);
+    }
+
+    @include breakMin {
+      @include row(4, 15px, flex-start);
+    }
+    .userLoader {
+      flex-grow: 0;
+    }
+  }
+
+  &_load {
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+}

@@ -1,0 +1,143 @@
+@import "./../../scss/breaks.scss";
+@import "./../../scss/mixin.scss";
+
+.mobileBtns {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  height: 60px;
+  box-shadow: 0px -7px 20px 1px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+  @include breakMin {
+    position: fixed;
+    bottom: inherit;
+    left: inherit;
+    width: 250px;
+    height: 500px;
+    border-radius: 5px;
+    z-index: 1;
+  }
+
+  &_wrapper {
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 600px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include breakMin {
+      max-width: none;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
+  }
+
+  &_btn {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    @include breakMin {
+      display: flex;
+      align-items: center;
+    }
+
+    &:hover {
+      color: #3a7fc3;
+      svg,
+      span {
+        fill: #3a7fc3;
+      }
+    }
+
+    &-middle {
+      transform: translateY(-20px);
+      position: relative;
+      @include breakMin {
+        transform: none;
+      }
+
+      &::after {
+        content: "";
+        width: 120%;
+        height: 120%;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0px -7px 20px 1px rgba(0, 0, 0, 0.1);
+        @include center;
+        z-index: -1;
+        @include breakMin {
+          display: none;
+        }
+      }
+      svg {
+        width: 50px;
+        height: 50px;
+        fill: #3a7fc3;
+        stroke: #3a7fc3;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        @include breakMin {
+          width: 30px;
+          height: 30px;
+          border: 0px solid #fff;
+          fill: inherit;
+          stroke: inherit;
+        }
+      }
+    }
+
+    &-wrapper {
+      position: relative;
+    }
+
+    &-notifications {
+      position: absolute;
+      top: -7px;
+      left: -4px;
+      font-size: 12px;
+      color: #fff;
+      background-color: rgb(226, 11, 11);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-icon {
+      width: 30px;
+      height: 30px;
+      transition: 0.3s;
+    }
+
+    &-text {
+      display: none;
+      @include breakMin {
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 600;
+        margin-left: 12px;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  .active_btn {
+    .mobileBtns_btn-text {
+      color: #3a7fc3;
+    }
+    svg {
+      fill: #3a7fc3;
+      stroke: #3a7fc3;
+    }
+  }
+}
